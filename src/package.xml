@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>CustomSchemaBuilder</members>
+        <members>FileUploader</members>
+        <members>FileUploaderTest</members>
+        <members>MetadataService</members>
+        <members>SchemaAttribute</members>
+        <members>mockUpHandler</members>
+        <members>mockUpHandlerTest</members>
+        <members>templateData</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>DownloadTemplate</members>
+        <members>HomePage</members>
+        <members>UploadTemplateForSchema</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
+        <members>SAMPLE</members>
+        <members>Zen4orceLogo</members>
+        <members>schemaBuilderLogo</members>
+        <name>StaticResource</name>
+    </types>
+    <version>23.0</version>
+</Package>

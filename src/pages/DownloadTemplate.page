@@ -1,0 +1,59 @@
+<apex:page controller="FileUploader" title="Download Template" showHeader="false" sidebar="false">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+	    <script>
+   		j$ = jQuery.noConflict();
+    function downloadAll(files){
+    if(files.length == 0) return;
+    file = files.pop();
+    var theAnchor = j$('<a />')
+        .attr('href', file[1])
+        .attr('download',file[0])
+        // Firefox does not fires click if the link is outside
+        // the DOM
+        .appendTo('body');
+    
+    theAnchor[0].click(); 
+    theAnchor.remove();
+    downloadAll(files);
+}
+
+    function downloadAllFiles()
+    {
+        debugger;
+        
+         downloadAll([
+        ['SampleTemplate.xls', 'data:text/csv;charset=utf8,'+
+                  encodeURIComponent('{!csvData}')],
+        ['Help.xls', 'data:text/xls;charset=utf8,'+
+                  encodeURIComponent('{!helpData}')],
+    ]);
+    }
+    </script>
+    <head>
+        <title>Download Template</title>
+
+    </head>
+    <div>
+		<apex:form >
+			<apex:pageMessages />
+			<apex:pageblock >
+				<div>
+					<apex:pageblocktable value="{!lstFieldDetails}" var="r"
+						align="center">
+						<apex:column value="{!r.CSVColumnName__c}" />
+						<apex:column value="{!r.DataType__c}" />
+						<apex:column value="{!r.Description__c}" />
+					</apex:pageblocktable>
+
+				</div>
+				<br />
+					<div>
+					<font color="red">*Download Sample file</font> <input type="Button"
+						value="Download Sample Template"
+						onClick="downloadAllFiles()" />
+                       <!-- <a href="#" class="download-csv" onclick="downloadAllFiles();">Download all</a>-->
+				</div>
+			</apex:pageblock>
+		</apex:form>
+	</div>
+</apex:page>

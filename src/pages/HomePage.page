@@ -1,0 +1,88 @@
+<apex:page showHeader="false" sidebar="false" >
+	<style>
+.contentStyle {
+	font-size: 12px;
+}
+
+.buttonStyle {
+	width: 80%;
+	height: 112px;
+	background-color: #72AFBA;
+	text-align: center;
+	padding-top: 4px;
+	color: white !important;
+	font-size: 23px !important;
+}
+
+.activeTab {
+	background-color: #B7A752;
+	color: white;
+	background-image: none
+}
+
+.inactiveTab {
+	background-color: #F3F3EC;
+	color: black;
+	background-image: none
+}
+
+.NoRecord {
+	font-size: 11px;
+}
+        
+.right {
+    position: absolute;
+    right: 0px;
+    padding: 10px;
+} 
+      
+.left{
+	position: absolute;
+    padding: 10px;        
+}        
+</style>
+    <head>
+        <title>Home</title>
+
+    </head>
+	<apex:form >
+		<script>
+function openPopup(page,param){
+    window.open(page+'?param='+param,'_blank', 'toolbar=no,scrollbars=yes, resizable=yes, top=250, left=500, width=400, height=400, menubar=no')
+}
+</script>
+		<apex:image id="appLogo" value="{!$Resource.schemaBuilderLogo}" width="100" height="100" styleClass="left"/>
+        <apex:image id="Zen4orceLogo" value="{!$Resource.Zen4orceLogo}" width="100" height="100" styleClass="right"/>
+        <br />
+		<br />
+		<br />
+		<br />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+       
+        <table style="width: 100%">
+			<tr>
+				<td style='width: 50%;'><apex:commandButton value="DownLoad Template" styleClass="buttonStyle"
+						style="background:#72AFBA"
+						onclick="openPopup('{!$Page.DownloadTemplate}','pram1');" />
+				</td>
+				<td><apex:commandButton value="Create Schema Using Template"
+						styleClass="buttonStyle" style="background:#72AFBA"
+						onclick="openPopup('{!$Page.UploadTemplateForSchema}','pram1');" />
+				</td>
+			</tr>
+			<tr>
+				<td><apex:commandButton value="Field Creator using UI"
+						styleClass="buttonStyle" style="background:#72AFBA" />
+				</td>
+				<td><apex:commandButton value="Upload from DB"
+						styleClass="buttonStyle" style="background:#72AFBA" />
+				</td>
+			</tr>
+		</table>
+	</apex:form>
+</apex:page>

@@ -1,0 +1,42 @@
+<apex:page controller="FileUploader" showHeader="false" sidebar="false" title="Upload Schema">
+    <head>
+        <title>Upload Schema</title>
+    </head>
+    <div>
+		<apex:form >
+			<apex:pageMessages />
+			<apex:pageBlock >
+				<div>
+					<div>
+						<font color="green">*Select Object </font>
+						<apex:selectList id="obj" size="1" value="{!selectedObj}"
+							label="Select Object">
+							<apex:selectOptions value="{!objList}" />
+						</apex:selectList>
+					</div>
+					<br/>
+					<font color="green">*Please Choose the file for uploading
+						schema </font>
+					<apex:inputFile value="{!contentFile}" filename="{!nameFile}"
+						accept=".csv" />
+					<apex:commandButton action="{!ReadFile}" value="Upload File"
+						id="theButton" style="width:70px;"/>
+				</div>
+            </apex:pageBlock>
+            <apex:pageBlock id="red" rendered="{!summaryPage}">
+                
+                <apex:pageBlockSection id="redirect" rendered="true">
+                	Summary:
+                    <br/>
+                    Successfully Created Feilds:<apex:outputtext value="14"/>
+                    <br/>
+                    fields failed to create:<apex:outputtext value="3"/>
+                    <br/>
+                </apex:pageBlockSection>
+                <apex:commandButton value="Redirect to Object">
+				<apex:actionFunction name="sayHello" action="{!reDirect}"/>
+                    </apex:commandButton>
+			</apex:pageBlock>
+		</apex:form>
+	</div>
+</apex:page>
